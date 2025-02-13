@@ -1,0 +1,18 @@
+We are comparing the readings from several CO2 sensors to test them for accuracy.
+Analyze this image and extract the CO2 PPM reading from each of the sensors.
+Look carefully at each sensor and read only the CO2 PPM reading.
+
+Sometimes, when the last digit is a "1", it's easy to overlook it because there is a larger gap. 
+So keep that in mind and return the correct value, don't ignore that last digit.
+
+For the Asani sensor, be extra careful to read the correct value - the one below "CO2", to the left of where it says "ppm".
+
+For Aranet sensor, the value is always the largest number.
+
+{% if previous_reading %}
+Here's the previous reading:
+{{ previous_reading | tojson(indent=2) }}
+
+Normally, the value for each sensor should not be too far from the previous reading for that sensor. 
+So if you see a big jump, it's probably wrong.
+{% endif %}
